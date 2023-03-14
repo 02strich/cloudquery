@@ -33,13 +33,16 @@ func (c *Client) WriteTableBatch(ctx context.Context, table *schema.Table, data 
 		return nil
 	}
 
-	if c.pluginSpec.Athena {
-		for _, resource := range data {
-			for u := range resource {
-				if table.Columns[u].Type != schema.TypeJSON {
-					continue
-				}
-				sanitizeJSONKeys(resource[u])
+	for _, resource := range data {
+		for u := range resource {
+			if table.Columns[u].Type != schema.TypeJSON {
+				continue
+			}
+			if jsonValue, ok := resource[u].(*schema.JSON); ok {
+				jsonParsed := jsonValue.Get()
+				sanitizeJSONKeys(jsonParsed)
+				// log.Info().Any("json", jsonParsed).Msg("asd")
+				jsonValue.Set(jsonParsed)
 			}
 		}
 	}
