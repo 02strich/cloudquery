@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/apache/arrow/go/v15/arrow"
-	"github.com/cloudquery/cloudquery/cli/internal/specs/v0"
-	"github.com/cloudquery/cloudquery/cli/internal/transformer"
+	"github.com/cloudquery/cloudquery/cli/intarnal/specs/v0"
+	"github.com/cloudquery/cloudquery/cli/intarnal/transformer"
 	"github.com/cloudquery/plugin-pb-go/managedplugin"
 	"github.com/cloudquery/plugin-pb-go/metrics"
 	"github.com/cloudquery/plugin-pb-go/pb/plugin/v3"
@@ -20,29 +20,29 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
-type v3source struct {
-	client *managedplugin.Client
-	spec   specs.Source
+type V3source struct {
+	Client *managedplugin.Client
+	Spec   specs.Source
 }
 
-type v3destination struct {
-	client *managedplugin.Client
-	spec   specs.Destination
+type V3destination struct {
+	Client *managedplugin.Client
+	Spec   specs.Destination
 }
 
 // nolint:dupl
-func syncConnectionV3(ctx context.Context, source v3source, destinations []v3destination, backend *v3destination, uid string, noMigrate bool) error {
+func SyncConnectionV3(ctx context.Context, source V3source, destinations []V3destination, backend *V3destination, uid string, noMigrate bool) error {
 	var mt metrics.Metrics
-	var exitReason = ExitReasonStopped
+	exitReason := ExitReasonStopped
 	tablesForDeleteStale := make(map[string]bool, 0)
 
-	sourceSpec := source.spec
-	sourceClient := source.client
+	sourceSpec := source.Spec
+	sourceClient := source.Client
 	destinationSpecs := make([]specs.Destination, len(destinations))
 	destinationsClients := make([]*managedplugin.Client, len(destinations))
 	for i := range destinations {
-		destinationSpecs[i] = destinations[i].spec
-		destinationsClients[i] = destinations[i].client
+		destinationSpecs[i] = destinations[i].Spec
+		destinationsClients[i] = destinations[i].Client
 	}
 
 	defer func() {
@@ -89,9 +89,9 @@ func syncConnectionV3(ctx context.Context, source v3source, destinations []v3des
 		}
 	}
 	if backend != nil {
-		backendPbClient = plugin.NewPluginClient(backend.client.Conn)
-		connection := backend.client.ConnectionString()
-		variables.Plugins[backend.spec.Name] = specs.PluginVariables{
+		backendPbClient = plugin.NewPluginClient(backend.Client.Conn)
+		connection := backend.Client.ConnectionString()
+		variables.Plugins[backend.Spec.Name] = specs.PluginVariables{
 			Connection: connection,
 		}
 	}
@@ -110,7 +110,7 @@ func syncConnectionV3(ctx context.Context, source v3source, destinations []v3des
 		}
 	}
 	if backend != nil {
-		backendSpec := backend.spec
+		backendSpec := backend.Spec
 		backendSpecBytes, err := json.Marshal(backendSpec.Spec)
 		if err != nil {
 			return err

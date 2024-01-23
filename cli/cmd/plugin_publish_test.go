@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/cloudquery/cloudquery/cli/internal/hub"
+	"github.com/cloudquery/cloudquery/cli/intarnal/hub"
 	"github.com/google/go-cmp/cmp"
 )
 

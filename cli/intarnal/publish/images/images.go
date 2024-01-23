@@ -15,7 +15,7 @@ import (
 	"strings"
 
 	cloudquery_api "github.com/cloudquery/cloudquery-api-go"
-	"github.com/cloudquery/cloudquery/cli/internal/hub"
+	"github.com/cloudquery/cloudquery/cli/intarnal/hub"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/ast"
 	"golang.org/x/net/html"

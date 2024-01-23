@@ -17,9 +17,9 @@ import (
 	cloudquery_api "github.com/cloudquery/cloudquery-api-go"
 	cqapiauth "github.com/cloudquery/cloudquery-api-go/auth"
 	"github.com/cloudquery/cloudquery-api-go/config"
-	"github.com/cloudquery/cloudquery/cli/internal/hub"
-	"github.com/cloudquery/cloudquery/cli/internal/publish/images"
-	"github.com/cloudquery/cloudquery/cli/internal/team"
+	"github.com/cloudquery/cloudquery/cli/intarnal/hub"
+	"github.com/cloudquery/cloudquery/cli/intarnal/publish/images"
+	"github.com/cloudquery/cloudquery/cli/intarnal/team"
 )
 
 type ManifestJSONV1 struct {

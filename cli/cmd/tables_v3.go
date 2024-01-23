@@ -5,7 +5,7 @@ import (
 	"fmt"
 	gosync "sync"
 
-	"github.com/cloudquery/cloudquery/cli/internal/docs"
+	"github.com/cloudquery/cloudquery/cli/intarnal/docs"
 	"github.com/cloudquery/plugin-pb-go/managedplugin"
 	pluginPb "github.com/cloudquery/plugin-pb-go/pb/plugin/v3"
 	"github.com/cloudquery/plugin-sdk/v4/schema"

@@ -11,7 +11,7 @@ import (
 
 	cloudquery_api "github.com/cloudquery/cloudquery-api-go"
 	cqapiauth "github.com/cloudquery/cloudquery-api-go/auth"
-	"github.com/cloudquery/cloudquery/cli/internal/publish"
+	"github.com/cloudquery/cloudquery/cli/intarnal/publish"
 	"github.com/cloudquery/plugin-pb-go/managedplugin"
 	"github.com/spf13/cobra"
 )

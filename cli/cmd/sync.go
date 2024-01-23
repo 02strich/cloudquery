@@ -8,8 +8,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/cloudquery/cloudquery/cli/internal/auth"
-	"github.com/cloudquery/cloudquery/cli/internal/specs/v0"
+	"github.com/cloudquery/cloudquery/cli/intarnal/auth"
+	"github.com/cloudquery/cloudquery/cli/intarnal/specs/v0"
 	"github.com/cloudquery/plugin-pb-go/managedplugin"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
@@ -228,25 +228,25 @@ func sync(cmd *cobra.Command, args []string) error {
 				}
 			}
 
-			src := v3source{
-				client: cl,
-				spec:   *source,
+			src := V3source{
+				Client: cl,
+				Spec:   *source,
 			}
-			dests := make([]v3destination, 0, len(destinationClientsForSource))
+			dests := make([]V3destination, 0, len(destinationClientsForSource))
 			for i, destination := range destinationClientsForSource {
-				dests = append(dests, v3destination{
-					client: destination,
-					spec:   destinationForSourceSpec[i],
+				dests = append(dests, V3destination{
+					Client: destination,
+					Spec:   destinationForSourceSpec[i],
 				})
 			}
-			var backend *v3destination
+			var backend *V3destination
 			if backendClientForSource != nil && destinationForSourceBackendSpec != nil {
-				backend = &v3destination{
-					client: backendClientForSource,
-					spec:   *destinationForSourceBackendSpec,
+				backend = &V3destination{
+					Client: backendClientForSource,
+					Spec:   *destinationForSourceBackendSpec,
 				}
 			}
-			if err := syncConnectionV3(ctx, src, dests, backend, invocationUUID.String(), noMigrate); err != nil {
+			if err := SyncConnectionV3(ctx, src, dests, backend, invocationUUID.String(), noMigrate); err != nil {
 				return fmt.Errorf("failed to sync v3 source %s: %w", cl.Name(), err)
 			}
 		case 2:

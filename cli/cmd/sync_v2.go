@@ -10,8 +10,8 @@ import (
 
 	"slices"
 
-	"github.com/cloudquery/cloudquery/cli/internal/specs/v0"
-	"github.com/cloudquery/cloudquery/cli/internal/transformer"
+	"github.com/cloudquery/cloudquery/cli/intarnal/specs/v0"
+	"github.com/cloudquery/cloudquery/cli/intarnal/transformer"
 	"github.com/cloudquery/plugin-pb-go/managedplugin"
 	"github.com/cloudquery/plugin-pb-go/metrics"
 	"github.com/cloudquery/plugin-pb-go/pb/destination/v1"

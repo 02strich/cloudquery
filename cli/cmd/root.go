@@ -7,7 +7,7 @@ import (
 
 	"github.com/rs/zerolog"
 
-	"github.com/cloudquery/cloudquery/cli/internal/enum"
+	"github.com/cloudquery/cloudquery/cli/intarnal/enum"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	"github.com/thoas/go-funk"

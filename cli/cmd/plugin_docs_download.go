@@ -13,7 +13,7 @@ import (
 
 	cloudquery_api "github.com/cloudquery/cloudquery-api-go"
 	"github.com/cloudquery/cloudquery-api-go/auth"
-	"github.com/cloudquery/cloudquery/cli/internal/hub"
+	"github.com/cloudquery/cloudquery/cli/intarnal/hub"
 	"github.com/spf13/cobra"
 )
 

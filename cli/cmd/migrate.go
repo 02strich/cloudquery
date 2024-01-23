@@ -6,8 +6,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/cloudquery/cloudquery/cli/internal/auth"
-	"github.com/cloudquery/cloudquery/cli/internal/specs/v0"
+	"github.com/cloudquery/cloudquery/cli/intarnal/auth"
+	"github.com/cloudquery/cloudquery/cli/intarnal/specs/v0"
 	"github.com/cloudquery/plugin-pb-go/managedplugin"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"

@@ -17,7 +17,7 @@ import (
 	"github.com/cenkalti/backoff/v4"
 	"github.com/cloudquery/cloudquery-api-go/auth"
 	"github.com/cloudquery/cloudquery-api-go/config"
-	"github.com/cloudquery/cloudquery/cli/internal/team"
+	"github.com/cloudquery/cloudquery/cli/intarnal/team"
 	"github.com/pkg/browser"
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
